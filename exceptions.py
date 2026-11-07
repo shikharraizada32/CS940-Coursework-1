@@ -15,3 +15,5 @@ class MissingBranchError(TubeError):
 class NegativeTimeError(TubeError):
     pass
 
+class HeapError(DataStructureError):
+    pass
