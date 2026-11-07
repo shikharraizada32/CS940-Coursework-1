@@ -17,3 +17,6 @@ class NegativeTimeError(TubeError):
 
 class HeapError(DataStructureError):
     pass
+
+class TrieError(DataStructureError):
+    pass
