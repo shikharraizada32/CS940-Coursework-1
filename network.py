@@ -1,16 +1,12 @@
 from __future__ import annotations
 from typing import Any
 
-from exceptions import TubeError
+from exceptions import NetworkError
 from station import Station
 from line import Line
 from prediction import Prediction
 from heap import Heap
 from trie import Trie
-
-class NetworkError(TubeError):
-    """Custom exception for network-level failures."""
-    pass
 
 class Network:
     def __init__(self) -> None:
@@ -60,22 +56,22 @@ class Network:
         l_id = prediction.line_id
         v_id = prediction.vehicle_id
         
-        # 1. Station Heap
+        # Station Heap
         if s_id not in self._station_heaps:
             self._station_heaps[s_id] = Heap()
         self._station_heaps[s_id].push(prediction, prediction)
 
-        # 2. Line Heap
+        # Line Heap
         if l_id not in self._line_heaps:
             self._line_heaps[l_id] = Heap()
         self._line_heaps[l_id].push(prediction, prediction)
 
-        # 3. Station + Line Heap
+        # Station + Line Heap
         if (s_id, l_id) not in self._station_line_heaps:
             self._station_line_heaps[(s_id, l_id)] = Heap()
         self._station_line_heaps[(s_id, l_id)].push(prediction, prediction)
 
-        # 4. Train Heap
+        # Train Heap
         if (v_id, l_id) not in self._train_heaps:
             self._train_heaps[(v_id, l_id)] = Heap()
         self._train_heaps[(v_id, l_id)].push(prediction, prediction)

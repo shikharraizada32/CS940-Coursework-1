@@ -3,6 +3,8 @@ from branch import Branch
 from exceptions import DuplicateBranchError, MissingBranchError
 
 class Line:
+    """Represents a London Underground line composed of multiple branches."""
+    
     def __init__(
             self,
             line_id: str,
@@ -29,6 +31,7 @@ class Line:
         return self.branches[id]
 
     def get_stations(self)-> set[str]:
+        # Using a set to automatically drop duplicates where branches fork/merge
         station_set: set[str] = set()
         for branch in self.branches.values():
             for station_id in branch.stations:

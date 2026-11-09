@@ -20,3 +20,7 @@ class HeapError(DataStructureError):
 
 class TrieError(DataStructureError):
     pass
+
+class NetworkError(TubeError):
+    """Custom exception for network-level failures."""
+    pass

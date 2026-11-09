@@ -4,6 +4,7 @@ import re
 from exceptions import TubeError
 
 class Station:
+    # Strict list of valid lines to filter out bus routes and overground
     TUBE_LINES = {
         "bakerloo", "central", "circle", "district", "hammersmith-city",
         "jubilee", "metropolitan", "northern", "piccadilly", "victoria", "waterloo-city"
@@ -27,6 +28,7 @@ class Station:
         self.lat = lat
         self.lon = lon
 
+        # Parse compound zones like "2+3" or "2/3" cleanly
         self.zones = re.split(r'\s*[+/]\s*', zones) if zones else []
 
         self.interchange_lines = [
@@ -34,6 +36,7 @@ class Station:
         ]
 
     def is_interchange(self) -> bool:
+        # A true interchange must have >1 actual Tube lines, ignoring buses
         valid_tube_lines = [line_id for line_id in self.interchange_lines if line_id in self.TUBE_LINES]
         return len(set(valid_tube_lines)) > 1
 
@@ -41,6 +44,7 @@ class Station:
             self, 
             other: Station
     ) -> float:
+            # Haversine formula for real-world distances
             R = 6371.0
 
             lat1, lon1 = math.radians(self.lat), math.radians(self.lon)
@@ -58,6 +62,7 @@ class Station:
             self,
             other: object
     ) -> bool:
+            # Equality is strictly bound to the unique NaPTAN ID
             if not isinstance(other, Station):
                 return False
             return self.station_id == other.station_id

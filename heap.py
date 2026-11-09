@@ -4,7 +4,10 @@ from exceptions import HeapError
 
 class Heap:
     def __init__(self)-> None:
+        # Flat array to represent the binary tree
         self._data: list[tuple[Any,int,Any]]= []
+        # Counter guarantees stable FIFO sorting when keys are identical, 
+        # so Python never tries to compare the actual objects.
         self._counter: int=0
 
     def push(
@@ -23,6 +26,7 @@ class Heap:
         if len(self._data) == 1:
             return self._data.pop()[2]
 
+        # Swap root with the last element to preserve tree shape
         self._data[0], self._data[-1] = self._data[-1], self._data[0]
         popped_item = self._data.pop()[2]
 
@@ -42,6 +46,7 @@ class Heap:
             raise HeapError(f"Invalid value for k: {k}")
 
         n= len(self._data)
+        # If k is -1 or larger than the heap, just extract everything
         if k == -1 or k > n:
             k = n
 
@@ -51,6 +56,7 @@ class Heap:
         result = []
 
         aux_heap = Heap()
+        # Push the root's priority and its array index (0) into the aux heap
         aux_heap.push((self._data[0][0], self._data[0][1]), 0)
 
         for _ in range(k):
@@ -60,6 +66,7 @@ class Heap:
             left_idx = 2 * idx + 1
             right_idx = 2 * idx + 2
 
+            # Add valid children to the frontier
             if left_idx < n:
                 aux_heap.push((self._data[left_idx][0], self._data[left_idx][1]), left_idx)
             if right_idx < n:
@@ -73,6 +80,7 @@ class Heap:
         new_heap = cls()
         n = len(items)
 
+        # Copy items over without aliasing the original list
         for i in range(n):
             key, obj = items[i]
             new_heap._data.append((key, i, obj))

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 class Branch:
+    """Represents a sequence of stations forming a branch on a Tube line."""
 
     def __init__(
             self,
@@ -8,6 +9,7 @@ class Branch:
             next_branch_ids: list[int]
     ) -> None:
         self.branch_id = branch_id
+        # Keep track of where this branch connects to next
         self.next_branch_ids = next_branch_ids
         self.stations: list[str] = []
 
@@ -18,9 +20,11 @@ class Branch:
         self.stations.append(station)
 
     def station_edges(self) -> list[tuple[str,str]]:
-        return list(zip(self.stations[:-1], self.stations[-1:]))
+        # Zip pairs up adjacent stations to create directed edges for the graph
+        return list(zip(self.stations[:-1], self.stations[1:]))
 
     def branch_edges(self) -> list[tuple[int,int]]:
+        # Connects this branch to all its subsequent branches
         return [(self.branch_id, next_id) for next_id in self.next_branch_ids]
 
     def __iter__(self):

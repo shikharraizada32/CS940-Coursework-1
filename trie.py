@@ -15,9 +15,7 @@ class Trie:
         self._all_objects: list[Any] = []
     
     def insert(self, key: str, obj: Any) -> None:
-        """
-        Associates obj with key and indexes each word of the key.
-        """
+        """Associates obj with key and indexes each word of the key."""
         # Validate key type and content
         if not isinstance(key, str):
             raise TrieError(f"Key must be a string, got {type(key).__name__}")
@@ -40,10 +38,8 @@ class Trie:
             current.objects.append(obj)
 
     def search_by_prefix(self, prefix: str) -> list[Any]:
-        """
-        Returns all objects where a word in their key starts with the prefix.
-        Runs in O(m + size of matching subtree)[cite: 16].
-        """
+        """Returns all objects where a word in their key starts with the prefix.
+        Runs in O(m + size of matching subtree)[cite: 16]."""
         if not isinstance(prefix, str):
             raise TrieError(f"Prefix must be a string, got {type(prefix).__name__}")
 

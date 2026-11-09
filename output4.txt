@@ -1,0 +1,35 @@
+----- Next 6 trains arriving at TCR overall ----
+[Prediction(vehicle_id='145', naptan_id='940GZZLUTCR', line_id='northern', time_to_station=20),
+ Prediction(vehicle_id='136', naptan_id='940GZZLUTCR', line_id='northern', time_to_station=80),
+ Prediction(vehicle_id='021', naptan_id='940GZZLUTCR', line_id='central', time_to_station=109),
+ Prediction(vehicle_id='032', naptan_id='940GZZLUTCR', line_id='central', time_to_station=110),
+ Prediction(vehicle_id='066', naptan_id='940GZZLUTCR', line_id='northern', time_to_station=110),
+ Prediction(vehicle_id='067', naptan_id='940GZZLUTCR', line_id='central', time_to_station=139)]
+---- Next 12 trains on the Victoria line ---- 
+[Prediction(vehicle_id='203', naptan_id='940GZZLUEUS', line_id='victoria', time_to_station=14),
+ Prediction(vehicle_id='232', naptan_id='940GZZLUSVS', line_id='victoria', time_to_station=14),
+ Prediction(vehicle_id='266', naptan_id='940GZZLUKSX', line_id='victoria', time_to_station=14),
+ Prediction(vehicle_id='275', naptan_id='940GZZLUFPK', line_id='victoria', time_to_station=14),
+ Prediction(vehicle_id='206', naptan_id='940GZZLUTMH', line_id='victoria', time_to_station=15),
+ Prediction(vehicle_id='211', naptan_id='940GZZLUHAI', line_id='victoria', time_to_station=15),
+ Prediction(vehicle_id='213', naptan_id='940GZZLUOXC', line_id='victoria', time_to_station=15),
+ Prediction(vehicle_id='226', naptan_id='940GZZLUWRR', line_id='victoria', time_to_station=15),
+ Prediction(vehicle_id='241', naptan_id='940GZZLUKSX', line_id='victoria', time_to_station=44),
+ Prediction(vehicle_id='210', naptan_id='940GZZLUWWL', line_id='victoria', time_to_station=45),
+ Prediction(vehicle_id='214', naptan_id='940GZZLUBXN', line_id='victoria', time_to_station=45),
+ Prediction(vehicle_id='233', naptan_id='940GZZLUOXC', line_id='victoria', time_to_station=45)]
+---- Next 8 trains at Green park on piccadilly line ---- 
+[Prediction(vehicle_id='340', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=45),
+ Prediction(vehicle_id='100', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=74),
+ Prediction(vehicle_id='327', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=254),
+ Prediction(vehicle_id='320', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=285),
+ Prediction(vehicle_id='306', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=404),
+ Prediction(vehicle_id='351', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=465),
+ Prediction(vehicle_id='330', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=524),
+ Prediction(vehicle_id='231', naptan_id='940GZZLUGPK', line_id='piccadilly', time_to_station=585)]
+---- Where is train 012 on the District line going next? (in order) ---- 
+[Prediction(vehicle_id='012', naptan_id='940GZZLUSJP', line_id='district', time_to_station=14),
+ Prediction(vehicle_id='012', naptan_id='940GZZLUVIC', line_id='district', time_to_station=104),
+ Prediction(vehicle_id='012', naptan_id='940GZZLUSSQ', line_id='district', time_to_station=224),
+ Prediction(vehicle_id='012', naptan_id='940GZZLUSKS', line_id='district', time_to_station=343),
+ Prediction(vehicle_id='012', naptan_id='940GZZLUGTR', line_id='district', time_to_station=463)]

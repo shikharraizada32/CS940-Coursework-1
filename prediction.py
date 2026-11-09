@@ -2,6 +2,8 @@ from __future__ import annotations
 from exceptions import NegativeTimeError
 
 class Prediction:
+    """Represents a live arrival prediction for a specific train at a station."""
+
     def __init__(
             self,
             vehicle_id: str,
@@ -12,6 +14,7 @@ class Prediction:
             time_to_station: int,
             current_location: str
     )-> None:
+        # Catch bad TfL data at the source
         if time_to_station < 0:
             raise NegativeTimeError(f"Time to station can't be negative: {time_to_station}")
 
@@ -26,6 +29,7 @@ class Prediction:
             self,
             other: Prediction
     )-> bool:
+        # tie-breaker: if times are equal, fall back to vehicle_id
         return (self.time_to_station, self.vehicle_id) < (other.time_to_station, other.vehicle_id)
 
     def __repr__(self)-> str:
